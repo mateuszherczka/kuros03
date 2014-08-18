@@ -2,7 +2,6 @@
 
 BlockingServer::BlockingServer() :
     trajectoryPending(false)
-
 {}
 
 BlockingServer::~BlockingServer()
