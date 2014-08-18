@@ -22,11 +22,11 @@ protected:
     /*
     Also breaks send block on disconnect.
     */
-    void closeConnection() override;
+    void closeConnection(); // override;
 
 private:
 
-    bool trajectoryPending = false;
+    bool trajectoryPending;
     boost::condition_variable sendBlockCondition;
     boost::mutex sendBlockMutex;
     //mutable std::mutex sendBlockMutex;
@@ -34,7 +34,7 @@ private:
 
     //int robotState = 0;
 
-    void callResponseMethods(const KukaResponse &response) override;
+    void callResponseMethods(const KukaResponse &response); // override;
 
     void trajectoryDone(const KukaResponse &response);
 

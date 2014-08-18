@@ -34,9 +34,32 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="include" />
+			<Add directory="../../Libraries/tinyXml2/include" />
+		</Compiler>
+		<Linker>
+			<Add library="../../Libraries/tinyXml2/lib/libtinyxml2.a" />
+			<Add library="boost_system" />
+			<Add library="boost_thread" />
+		</Linker>
+		<Unit filename="include/BlockingServer.hpp" />
+		<Unit filename="include/KukaCommand.hpp" />
+		<Unit filename="include/KukaResponse.hpp" />
+		<Unit filename="include/Server.hpp" />
+		<Unit filename="include/ServerConfig.hpp" />
+		<Unit filename="include/ThreadSafeQueue.hpp" />
+		<Unit filename="include/XMLParser.hpp" />
+		<Unit filename="include/constants.hpp" />
+		<Unit filename="include/kuros.h" />
+		<Unit filename="include/types.hpp" />
+		<Unit filename="src/BlockingServer.cpp" />
+		<Unit filename="src/KukaCommand.cpp" />
+		<Unit filename="src/KukaResponse.cpp" />
+		<Unit filename="src/Server.cpp" />
+		<Unit filename="src/ServerConfig.cpp" />
+		<Unit filename="src/XMLParser.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

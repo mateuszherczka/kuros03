@@ -7,16 +7,17 @@
 #include <string>
 //#include <mutex>
 //#include <atomic>
-#include <thread>
+//#include <thread>
 
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 #include <boost/atomic.hpp>
-#include <boost/mutex.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 #include <types.hpp>
 
-#include <ThreadSafeQueue.hpp>
+#include <ThreadSafeQueue03.hpp>
 
 #include <ServerConfig.hpp>
 #include <KukaResponse.hpp>
@@ -32,7 +33,7 @@ using boost::thread;
 typedef boost::shared_ptr<tcp::socket> socket_ptr;
 typedef boost::shared_ptr<boost::asio::streambuf> streambuf_ptr;
 typedef boost::shared_ptr<boost::thread> thread_ptr;
-typedef boost::shared_ptr<ThreadSafeQueue<streambuf_ptr>> queue_ptr;
+typedef boost::shared_ptr<ThreadSafeQueue03<streambuf_ptr> > queue_ptr;
 
 // ---------------------------------------------------------------------------
 // Class
@@ -81,8 +82,8 @@ public:
 
 protected:
 
-    ThreadSafeQueue<streambuf_ptr> messageQueue;    // TODO: make threadsafe queue pointers here instead
-    ThreadSafeQueue<streambuf_ptr> responseQueue;   // TODO: create and destroy queues inside session
+    ThreadSafeQueue03<streambuf_ptr> messageQueue;    // TODO: make threadsafe queue pointers here instead
+    ThreadSafeQueue03<streambuf_ptr> responseQueue;   // TODO: create and destroy queues inside session
 
     virtual void closeConnection();
 
@@ -93,18 +94,18 @@ private:
     // ---------------------------------------------------------------------------
 
     //bool connected = false;         // Breaks read,write and responseThread while loops.
-    boost::atomic<bool> connected {false};
+    boost::atomic<bool> connected;
 
     bool isConnected();
     void setConnected(bool onoff);
 
-    boost::atomic<bool> accepting {false};    // for external queries, is it accepting sends?
-    boost::atomic<bool> keepAlive {false};    // after connecting once and disconnecting, will we connect again?
+    boost::atomic<bool> accepting;    // for external queries, is it accepting sends?
+    boost::atomic<bool> keepAlive;    // after connecting once and disconnecting, will we connect again?
 
 
-    boost::atomic<int> invalidParseCount {0};      // handy counters
-    boost::atomic<int> readMessageCount {0};
-    boost::atomic<int> writtenMessageCount {0};
+    boost::atomic<int> invalidParseCount;      // handy counters
+    boost::atomic<int> readMessageCount;
+    boost::atomic<int> writtenMessageCount;
 
     void resetData();
 

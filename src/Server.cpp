@@ -1,6 +1,11 @@
 #include "Server.hpp"
 
-Server::Server()
+Server::Server() :
+    connected(false),
+    accepting(false),
+    keepAlive(false),
+    invalidParseCount(0),
+    readMessageCount(0)
 {
     loadConfig();
 }
@@ -64,7 +69,7 @@ void Server::closeConnection()
 
 void Server::resetData()
 {
-    // TODO: make these atomic
+    // atomic
     invalidParseCount   = 0;
     readMessageCount    = 0;
     writtenMessageCount = 0;
@@ -84,7 +89,6 @@ void Server::setConnected(bool onoff)
 {
     connected = onoff;  // atomic
 }
-
 
 bool Server::isAccepting()
 {
@@ -136,7 +140,8 @@ void Server::callResponseMethods(const KukaResponse &response)
 
 void Server::sleep(int ms)
 {
-    std::this_thread::sleep_for( std::chrono::milliseconds(ms) );
+    //std::this_thread::sleep_for( std::chrono::milliseconds(ms) );
+    boost::this_thread::sleep(boost::posix_time::milliseconds(ms));
 }
 
 void Server::startListening()
@@ -152,7 +157,7 @@ void Server::startListening()
     try
     {
         // spawn new session thread
-        session = thread_ptr(new std::thread(&Server::sessionThread,this,serverConfig.getPort()));
+        session = thread_ptr(new boost::thread(&Server::sessionThread,this,serverConfig.getPort()));
     }
     catch (std::exception &e)
     {
@@ -201,9 +206,9 @@ void Server::sessionThread(unsigned short port)
                 connected = true;       // atomic
 
                 // spawn
-                std::thread read_thread(&Server::readThread,this, sock);
-                std::thread write_thread(&Server::writeThread,this, sock);
-                std::thread response_thread(&Server::responseThread,this);
+                boost::thread read_thread(&Server::readThread,this, sock);
+                boost::thread write_thread(&Server::writeThread,this, sock);
+                boost::thread response_thread(&Server::responseThread,this);
 
                 // block for a second to let system get things rolling
                 sleep(1000);

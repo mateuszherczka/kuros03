@@ -35,8 +35,21 @@ void KukaCommand::formatTrajectory(boost::asio::streambuf &message, const info_v
 //                            << "CRot=\"" << frame[KUKA_FRAME_C] << "\" />\r\n";
 //    }
 
-    for (frame_vec::const_iterator frame = trajectory.begin(); frame != trajectory.end(); ++frame)
+//    for (frame_vec::const_iterator frame = trajectory.begin(); frame != trajectory.end(); ++frame)
+//    {
+//        to_message_stream   << "<XFrame XPos=\"" << frame[KUKA_FRAME_X] << "\" "   // the attributes MUST be XPos YPos ZPos ARot BRot CRot
+//                            << "YPos=\"" << frame[KUKA_FRAME_Y] << "\" "
+//                            << "ZPos=\"" << frame[KUKA_FRAME_Z] << "\" "
+//                            << "ARot=\"" << frame[KUKA_FRAME_A] << "\" "
+//                            << "BRot=\"" << frame[KUKA_FRAME_B] << "\" "
+//                            << "CRot=\"" << frame[KUKA_FRAME_C] << "\" />\r\n";
+//    }
+
+    //for (const frame_vec &frame : trajectory)
+    BOOST_FOREACH(const frame_vec &frame,trajectory)
     {
+
+        // a frame
         to_message_stream   << "<XFrame XPos=\"" << frame[KUKA_FRAME_X] << "\" "   // the attributes MUST be XPos YPos ZPos ARot BRot CRot
                             << "YPos=\"" << frame[KUKA_FRAME_Y] << "\" "
                             << "ZPos=\"" << frame[KUKA_FRAME_Z] << "\" "

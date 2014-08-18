@@ -1,7 +1,13 @@
 #include "ServerConfig.hpp"
 
 
-ServerConfig::ServerConfig() {}
+ServerConfig::ServerConfig() :
+    filename("ServerConfig.xml"),
+    port(6008),
+    endString("</Robot>"),
+    maxBufferSize(1024)
+{}
+
 ServerConfig::~ServerConfig() {}
 
 void ServerConfig::load()
@@ -10,7 +16,7 @@ void ServerConfig::load()
     {
         errorState = doc.LoadFile(filename.c_str());
     }
-    catch (boost::exception &e)
+    catch (std::exception &e)
     {
         cout << "ServerConfig load file exception: " << e.what() << endl;
     }
@@ -91,7 +97,7 @@ void ServerConfig::parse()
         {
             endString = std::string(xmltext->Value());
         }
-        catch (boost::exception &e)
+        catch (std::exception &e)
         {
             cout << "EndString value exception! EndString not changed. " << e.what() << endl;
         }

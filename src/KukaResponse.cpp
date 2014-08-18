@@ -181,21 +181,24 @@ void KukaResponse::printValues() const
 {
 
     cout << "Info: ";
-    for (const auto &val : info)
+//    for (const int &val : info)
+    BOOST_FOREACH(const int &val, info)
     {
         cout << val << " ";
     }
     cout << endl;
 
     cout << "Frame: ";
-    for (const auto &val : frame)
+//    for (const double &val : frame)
+    BOOST_FOREACH(const double &val, frame)
     {
         cout << val << " ";
     }
     cout << endl;
 
     cout << "Axis: ";
-    for (const auto &val : axis)
+//    for (const double &val : axis)
+    BOOST_FOREACH(const double &val, axis)
     {
         cout << val << " ";
     }

@@ -16,7 +16,7 @@ class XMLParser
 {
 public:
 
-    const int MALFORMED_XML_ERROR = 666;
+    static const int MALFORMED_XML_ERROR = 666;
 
     XMLParser();
     virtual ~XMLParser();
@@ -25,9 +25,9 @@ public:
 
 protected:
 
-    int errorState = 0;
+    int errorState;
     XMLDocument doc;        // tinyxml
-    bool valid = true; // this is set to false if there is a malformed XML error
+    bool valid; // this is set to false if there is a malformed XML error
 
     /*
     Gets pointer to buffer inside streambuf.

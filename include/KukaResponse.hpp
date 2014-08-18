@@ -6,6 +6,8 @@
 #include <constants.hpp>
 #include <XMLParser.hpp>
 
+#include <boost/foreach.hpp>
+
 using boost::lexical_cast;
 using boost::bad_lexical_cast;
 

@@ -1,6 +1,6 @@
 #include "XMLParser.hpp"
 
-XMLParser::XMLParser() {}
+XMLParser::XMLParser() : errorState(0), valid(true) {}
 XMLParser::~XMLParser() {}
 
 bool XMLParser::isValid()

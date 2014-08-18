@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1408352287 source:/home/mh/dev/kuros03/src/BlockingServer.cpp
+	"BlockingServer.hpp"
+
+1408352424 /home/mh/dev/kuros03/include/BlockingServer.hpp
+	<Server.hpp>
+
+1408351005 /home/mh/dev/kuros03/include/Server.hpp
+	<iostream>
+	<istream>
+	<ostream>
+	<string>
+	<boost/asio.hpp>
+	<boost/thread.hpp>
+	<boost/atomic.hpp>
+	<boost/thread/mutex.hpp>
+	<boost/date_time/posix_time/posix_time.hpp>
+	<types.hpp>
+	<ThreadSafeQueue03.hpp>
+	<ServerConfig.hpp>
+	<KukaResponse.hpp>
+	<KukaCommand.hpp>
+
+1406206812 /home/mh/dev/kuros03/include/types.hpp
+	<vector>
+	<iostream>
+
+1408351844 /home/mh/dev/kuros03/include/ThreadSafeQueue03.hpp
+	<queue>
+	<boost/thread/condition_variable.hpp>
+	<boost/thread/mutex.hpp>
+	<iostream>
+
+1408352115 /home/mh/dev/kuros03/include/ServerConfig.hpp
+	<XMLParser.hpp>
+
+1408351945 /home/mh/dev/kuros03/include/XMLParser.hpp
+	<boost/lexical_cast.hpp>
+	<boost/asio.hpp>
+	<tinyxml2.h>
+	<types.hpp>
+
+1407089824 /home/mh/Libraries/tinyXml2/include/tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdarg.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<cstdarg>
+	<android/log.h>
+	<assert.h>
+
+1408351474 /home/mh/dev/kuros03/include/KukaResponse.hpp
+	<vector>
+	<constants.hpp>
+	<XMLParser.hpp>
+	<boost/foreach.hpp>
+
+1407503171 /home/mh/dev/kuros03/include/constants.hpp
+
+1408351208 /home/mh/dev/kuros03/include/KukaCommand.hpp
+	<types.hpp>
+	<constants.hpp>
+	<boost/asio.hpp>
+	<boost/lexical_cast.hpp>
+	<boost/foreach.hpp>
+
+1408351329 source:/home/mh/dev/kuros03/src/KukaCommand.cpp
+	"KukaCommand.hpp"
+
+1408351477 source:/home/mh/dev/kuros03/src/KukaResponse.cpp
+	"KukaResponse.hpp"
+
+1408351516 source:/home/mh/dev/kuros03/src/Server.cpp
+	"Server.hpp"
+
+1408352111 source:/home/mh/dev/kuros03/src/ServerConfig.cpp
+	"ServerConfig.hpp"
+
+1408351902 source:/home/mh/dev/kuros03/src/XMLParser.cpp
+	"XMLParser.hpp"
+

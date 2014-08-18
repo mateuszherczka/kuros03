@@ -37,12 +37,12 @@ private:
     // Private data
     // ---------------------------------------------------------------------------
 
-    std::string filename = "ServerConfig.xml";  // load this
+    std::string filename;  // load this
 
     // default
-    unsigned short port = 6008;
-    std::string endString = "</Robot>";
-    std::size_t maxBufferSize = 2048;
+    unsigned short port;
+    std::string endString;
+    std::size_t maxBufferSize;
 
     // ---------------------------------------------------------------------------
     // Private methods

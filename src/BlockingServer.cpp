@@ -1,14 +1,12 @@
 #include "BlockingServer.hpp"
 
-BlockingServer::BlockingServer()
-{
-    //ctor
-}
+BlockingServer::BlockingServer() :
+    trajectoryPending(false)
+
+{}
 
 BlockingServer::~BlockingServer()
-{
-    //dtor
-}
+{}
 
 void BlockingServer::blockSendTrajectory(const info_vec &info, const trajectory_vec &trajectory)
 {
@@ -26,7 +24,7 @@ void BlockingServer::blockSendTrajectory(const info_vec &info, const trajectory_
 
         messageQueue.push(message);
     }
-    catch (boost::exception &e)
+    catch (std::exception &e)
     {
         cerr << "BlockSendTrajectory exception: " << e.what() << endl;
     }

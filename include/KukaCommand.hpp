@@ -5,6 +5,7 @@
 #include <constants.hpp>
 #include <boost/asio.hpp>
 #include <boost/lexical_cast.hpp>
+#include <boost/foreach.hpp>
 
 class KukaCommand
 {
