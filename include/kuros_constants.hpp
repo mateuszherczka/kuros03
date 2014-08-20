@@ -1,5 +1,5 @@
-#ifndef CONSTANTS_HPP_INCLUDED
-#define CONSTANTS_HPP_INCLUDED
+#ifndef KUROS_CONSTANTS_HPP_INCLUDED
+#define KUROS_CONSTANTS_HPP_INCLUDED
 
 
 const int NO = 0;
@@ -70,4 +70,4 @@ const int KUKA_AXIS_A4    = 3;
 const int KUKA_AXIS_A5    = 4;
 const int KUKA_AXIS_A6    = 5;
 
-#endif // CONSTANTS_HPP_INCLUDED
+#endif // KUROS_CONSTANTS_HPP_INCLUDED

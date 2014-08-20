@@ -5,7 +5,10 @@ BlockingServer::BlockingServer() :
 {}
 
 BlockingServer::~BlockingServer()
-{}
+{
+    setPending(false);
+    sendBlockCondition.notify_all();
+}
 
 void BlockingServer::blockSendTrajectory(const info_vec &info, const trajectory_vec &trajectory)
 {

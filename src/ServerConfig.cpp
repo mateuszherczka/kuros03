@@ -18,7 +18,7 @@ void ServerConfig::load()
     }
     catch (std::exception &e)
     {
-        cout << "ServerConfig load file exception: " << e.what() << endl;
+        cerr << "ServerConfig load file exception: " << e.what() << endl;
     }
 
     if (errorState == 0)
@@ -27,7 +27,7 @@ void ServerConfig::load()
     }
     else
     {
-        cout << "ServerConfig load file failed with error " << errorState << endl;
+        cerr << "Could not load ServerConfig.xml, using default settings." << endl;
     }
 }
 
@@ -55,7 +55,7 @@ void ServerConfig::parse()
         }
         catch (const boost::bad_lexical_cast &e)
         {
-            cout << "Port value exception! Port not changed." << endl;
+            cerr << "Port value exception! Port not changed." << endl;
         }
     }
     else     // node doesnt exist
@@ -77,7 +77,7 @@ void ServerConfig::parse()
         }
         catch (const boost::bad_lexical_cast &e)
         {
-            cout << "MaxBufferSize value exception! MaxBufferSize not changed." << endl;
+            cerr << "MaxBufferSize value exception! MaxBufferSize not changed." << endl;
         }
     }
     else     // node doesnt exist
@@ -99,7 +99,7 @@ void ServerConfig::parse()
         }
         catch (std::exception &e)
         {
-            cout << "EndString value exception! EndString not changed. " << e.what() << endl;
+            cerr << "EndString value exception! EndString not changed. " << e.what() << endl;
         }
     }
     else     // node doesnt exist

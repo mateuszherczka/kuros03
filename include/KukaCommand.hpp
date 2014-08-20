@@ -2,7 +2,7 @@
 #define KUKACOMMAND_H
 
 #include <types.hpp>
-#include <constants.hpp>
+#include <kuros_constants.hpp>
 #include <boost/asio.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/foreach.hpp>

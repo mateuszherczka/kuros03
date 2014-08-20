@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include <constants.hpp>
+#include <kuros_constants.hpp>
 #include <XMLParser.hpp>
 
 #include <boost/foreach.hpp>

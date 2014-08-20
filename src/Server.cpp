@@ -12,8 +12,14 @@ Server::Server() :
 
 Server::~Server()
 {
-    cout << "Server destructor detaching session thread." << endl;
+    accepting = false;
+    connected = false;
     keepAlive = false; // atomic
+
+    messageQueue.reject();  // stop queues, which should terminate write and response threads
+    responseQueue.reject();
+
+    cout << "Server destructor detaching session thread." << endl;
     if (session)
     {
         if (session->joinable())

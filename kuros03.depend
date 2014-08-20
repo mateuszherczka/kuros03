@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1408366878 source:/home/mh/dev/kuros03/src/BlockingServer.cpp
+1408541170 source:/home/mh/dev/kuros03/src/BlockingServer.cpp
 	"BlockingServer.hpp"
 
 1408352424 /home/mh/dev/kuros03/include/BlockingServer.hpp
@@ -56,17 +56,17 @@
 	<android/log.h>
 	<assert.h>
 
-1408351474 /home/mh/dev/kuros03/include/KukaResponse.hpp
+1408439788 /home/mh/dev/kuros03/include/KukaResponse.hpp
 	<vector>
-	<constants.hpp>
+	<kuros_constants.hpp>
 	<XMLParser.hpp>
 	<boost/foreach.hpp>
 
 1407503171 /home/mh/dev/kuros03/include/constants.hpp
 
-1408351208 /home/mh/dev/kuros03/include/KukaCommand.hpp
+1408439848 /home/mh/dev/kuros03/include/KukaCommand.hpp
 	<types.hpp>
-	<constants.hpp>
+	<kuros_constants.hpp>
 	<boost/asio.hpp>
 	<boost/lexical_cast.hpp>
 	<boost/foreach.hpp>
@@ -80,9 +80,11 @@
 1408351516 source:/home/mh/dev/kuros03/src/Server.cpp
 	"Server.hpp"
 
-1408352111 source:/home/mh/dev/kuros03/src/ServerConfig.cpp
+1408438596 source:/home/mh/dev/kuros03/src/ServerConfig.cpp
 	"ServerConfig.hpp"
 
 1408351902 source:/home/mh/dev/kuros03/src/XMLParser.cpp
 	"XMLParser.hpp"
+
+1408439511 /home/mh/dev/kuros03/include/kuros_constants.hpp
 
